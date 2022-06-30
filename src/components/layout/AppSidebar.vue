@@ -5,13 +5,22 @@
       <!-- mail navigation -->
       <ul class="ps-0">
         <li>
-          <router-link :to="{name: 'index'}">Inbox</router-link>
+          <router-link :to="{name: 'index', params: {type: 'inbox'}}">
+            <font-awesome-icon icon="fa-solid fa-inbox" />
+            Inbox
+          </router-link>
         </li>
         <li>
-          <router-link :to="{name: 'starred'}">Starred</router-link>
+          <router-link :to="{name: 'index', params: {type: 'starred'}}">
+            <font-awesome-icon icon="fa-solid fa-star" />
+            Starred
+          </router-link>
         </li>
         <li>
-          <router-link :to="{name: 'sent'}">Sent</router-link>
+          <router-link :to="{name: 'index', params: {type: 'sent'}}">
+            <font-awesome-icon icon="fa-solid fa-paper-plane" />
+            Sent
+          </router-link>
         </li>
       </ul>
     </div>

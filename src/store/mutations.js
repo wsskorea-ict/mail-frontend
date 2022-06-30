@@ -2,6 +2,13 @@ import {setAuthStorage} from "@/api/auth"
 import axios from "axios"
 
 export default {
+    /** mail setting **/
+    SET_MAIL_TYPE(state, type) {
+        state.mailSetting.type = type || 'inbox';
+    },
+    SET_MAIL_PAGE(state, page) {
+        state.mailSetting.page = +page || 1;
+    },
     /** mail **/
     SET_MAIL_LIST(state, data) {
         state.mailList = data;

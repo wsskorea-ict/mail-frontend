@@ -6,6 +6,7 @@ const API_HOST = '';
 export default {
     /** mail **/
     FETCH_MAIL_LIST({commit, state}) {
+        console.log(state.mailSetting);
         mail.list(state.currentPage).then(({data}) => {
             commit('SET_MAIL_LIST', data)
         });
