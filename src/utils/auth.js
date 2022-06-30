@@ -2,10 +2,18 @@ import {getItem, setItem} from '@/api/localStorage.js';
 
 const STORAGE_NAME = 'auth';
 
-export const getAuth = () => {
-    return getItem(STORAGE_NAME);
+export let auth = {
+    login: false,
+    name: "",
+    token: "",
+}
+
+export const initAuth = () => {
+    const data = getItem(STORAGE_NAME);
+    auth = Object.assign(auth, data);
 }
 
 export const setAuth = (authObj) => {
-    return setItem(STORAGE_NAME, authObj);
+    setItem(STORAGE_NAME, authObj);
+    initAuth();
 }

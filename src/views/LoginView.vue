@@ -35,7 +35,7 @@ export default {
   },
   methods: {
     login() {
-      setAuth({token: 'test_token', name: 'test user name'});
+      setAuth({token: 'test_token', name: 'test user name', login: true});
       this.$router.push({name: 'index'});
     }
   }

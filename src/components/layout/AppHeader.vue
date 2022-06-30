@@ -8,8 +8,20 @@
         </h1>
       </div>
 
-      <div class="searchBox">
-        <input type="text" name="search" v-model="searchKeyWord" class="form-control" placeholder="Search mail" @keyup="searchReady">
+      <div class="d-flex align-items-center justify-content-between col pe-5">
+        <!-- search -->
+        <div class="searchBox d-flex align-items-center searchForm">
+          <input type="text" name="search" v-model="searchKeyWord" placeholder="Search mail" @change="searchReady"
+                 class="form-control">
+          <font-awesome-icon icon="fa-solid fa-xmark" class="button close" @click="searchKeyWord = ''"/>
+        </div>
+
+        <!-- user profile -->
+        <div>
+          <span class="me-3">{{authUser.name}}</span>
+
+          <button class="btn btn-secondary" @click="logout">logout</button>
+        </div>
       </div>
 
     </div>
@@ -17,12 +29,15 @@
 </template>
 
 <script>
+import {auth, setAuth} from "@/utils/auth";
+
 export default {
   name: 'AppHeader',
   data() {
     return {
       searchKeyWord: "",
       searchReadyTimeout: null,
+      authUser: auth,
     }
   },
   methods: {
@@ -32,8 +47,12 @@ export default {
     searchReady() {
       clearTimeout(this.searchReadyTimeout);
       this.searchReadyTimeout = setTimeout(this.search, 500);
+    },
+    logout() {
+      setAuth({login: false, token: '', name: ''});
+      this.$router.push({name: 'login'});
     }
-  }
+  },
 }
 </script>
 
@@ -48,5 +67,23 @@ header {
 
 .searchBox {
   width: 500px;
+}
+
+.searchForm {
+  border-radius: 50rem;
+  border: 1px solid #333;
+  overflow: hidden;
+}
+
+.searchForm input {
+  border: none;
+}
+
+.searchForm input:focus {
+  box-shadow: none;
+}
+
+.searchForm .button {
+  padding: .375rem .75rem;
 }
 </style>

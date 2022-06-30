@@ -1,8 +1,8 @@
-import {getAuth} from "@/utils/auth";
+import {auth} from "@/utils/auth";
 
 export default {
     check: function(){
-        return getAuth();
+        return auth.login;
     },
     redirectTo: function(){
         return {name: "login"};
