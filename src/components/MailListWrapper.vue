@@ -3,10 +3,10 @@
     <li
         class="item"
         :key="mail.id"
-        v-for="(mail, i) in mailList">
+        v-for="mail in mailList">
       <check-box-icon
-          :modelValue="checkedMailList[i]"
-          @update:modelValue="(value) => checkMail(i, value)"></check-box-icon>
+          :modelValue="checkedMailIds[mail.idx]"
+          @update:modelValue="(value) => checkMail(mail.idx, value)"></check-box-icon>
 
       {{ mail.content }}
     </li>
@@ -21,13 +21,13 @@ export default {
   name: "MailListWrapper",
   components: {CheckBoxIcon},
   computed: {
-    ...mapState(['mailList', 'checkedMailList'])
+    ...mapState(['mailList', 'checkedMailIds'])
   },
   methods: {
     ...mapMutations(['SET_CHECKED_MAIL']),
     ...mapActions(['FETCH_MAIL_LIST']),
-    checkMail(i, bool) {
-      this.SET_CHECKED_MAIL({i, bool});
+    checkMail(idx, bool) {
+      this.SET_CHECKED_MAIL({idx, bool});
     }
   },
   created() {

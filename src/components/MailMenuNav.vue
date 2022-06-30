@@ -14,7 +14,7 @@
         <font-awesome-icon
             icon="fa-solid fa-trash"
             class="leadIcon buttonIcon"
-            :class="{disabled: !checkMailNumber}"
+            :class="{disabled: !checkedMailNumber}"
             @click="deleteMail" />
       </div>
     </div>
@@ -23,21 +23,23 @@
 
 <script>
 import CheckBoxIcon from "@/components/icons/CheckBoxIcon";
-import {mapGetters, mapMutations, mapState} from "vuex";
+import {mapActions, mapGetters, mapMutations, mapState} from "vuex";
 
 export default {
   name: 'MailMenuNav',
   components: {CheckBoxIcon},
   computed: {
     ...mapState(['checkedMailAll']),
-    ...mapGetters(['checkMailNumber']),
+    ...mapGetters(['checkedMailNumber', 'checkedMailList']),
   },
   methods: {
     ...mapMutations(['SET_CHECKED_MAIL_LIST']),
+    ...mapActions(['DESTROY_MAIL_LIST']),
     deleteMail() {
-      if(!this.checkMailNumber) return;
+      if(!this.checkedMailNumber) return;
+      if(!window.confirm("정말 삭제하시겠습니까?")) return;
 
-      console.log("delete mail");
+      this.DESTROY_MAIL_LIST(this.checkedMailList.map(mail => mail.id));
     }
   },
 }

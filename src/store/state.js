@@ -1,6 +1,7 @@
 export default {
     auth: {token: null, name: null},
     mailList: [],
-    checkedMailList: [],
+    checkedMailIds: [],
     checkedMailAll: false,
+    currentPage: 1,
 }

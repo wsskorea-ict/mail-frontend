@@ -7,12 +7,12 @@ export default {
         state.mailList = data;
         this.commit("SET_CHECKED_MAIL_LIST", false);
     },
-    SET_CHECKED_MAIL(state, {i, bool}) {
-        state.checkedMailList[i] = bool;
-        state.checkedMailAll = this.getters.checkMailNumber === state.mailList.length;
+    SET_CHECKED_MAIL(state, {idx, bool}) {
+        state.checkedMailIds[idx] = bool;
+        state.checkedMailAll = this.getters.checkedMailNumber === state.mailList.length;
     },
     SET_CHECKED_MAIL_LIST(state, bool) {
-        state.checkedMailList = new Array(state.mailList.length).fill(bool);
+        state.checkedMailIds = new Array(state.mailList.length).fill(bool);
         state.checkedMailAll = bool;
     },
     /** user **/
