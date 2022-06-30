@@ -12,13 +12,13 @@
         <!-- search -->
         <div class="searchBox d-flex align-items-center searchForm">
           <input type="text" name="search" v-model="searchKeyWord" placeholder="Search mail" @change="searchReady"
-                 class="form-control">
+                 class="form-control" autocomplete="off">
           <font-awesome-icon icon="fa-solid fa-xmark" class="button close" @click="searchKeyWord = ''"/>
         </div>
 
         <!-- user profile -->
         <div>
-          <span class="me-3">{{authUser.name}}</span>
+          <span class="me-3">{{auth.name}}</span>
 
           <button class="btn btn-secondary" @click="logout">logout</button>
         </div>
@@ -29,7 +29,7 @@
 </template>
 
 <script>
-import {auth, setAuth} from "@/utils/auth";
+import {mapActions, mapState} from "vuex";
 
 export default {
   name: 'AppHeader',
@@ -37,10 +37,13 @@ export default {
     return {
       searchKeyWord: "",
       searchReadyTimeout: null,
-      authUser: auth,
     }
   },
+  computed: {
+    ...mapState(['auth'])
+  },
   methods: {
+    ...mapActions(['LOGOUT']),
     search() {
       console.log(this.searchKeyWord);
     },
@@ -49,7 +52,7 @@ export default {
       this.searchReadyTimeout = setTimeout(this.search, 500);
     },
     logout() {
-      setAuth({login: false, token: '', name: ''});
+      this.LOGOUT();
       this.$router.push({name: 'login'});
     }
   },

@@ -22,9 +22,32 @@ ol, ul {
     list-style: none;
 }
 
+label {
+    cursor: pointer;
+}
+
+[none] {
+    display: none;
+}
+
 /* app container */
 #app {
     width: 100vw;
     height: 100vh;
     overflow: hidden;
+}
+
+/* icon size */
+.leadIcon {
+    font-size: 1.4em;
+}
+
+.buttonIcon:not[disabled],
+.buttonIcon:not.disabled {
+    cursor: pointer;
+}
+
+.buttonIcon[disabled],
+.buttonIcon.disabled {
+    color: rgba(0,0,0,.4);
 }

@@ -3,11 +3,19 @@
 // axios.defaults.baseURL = '';
 // axios.defaults.common['Authorization'] = '';
 
-export default {
-    mail: {
-        getAll() {
-            return new Promise(res => res([1,2,3]));
-            // return axios.get('/mail');
-        },
-    }
+// import axios from "axios";
+
+export const mail = {
+    list() {
+        return new Promise(res => res(
+            {
+                data: [
+                    {id: 1, content: 'aaa'},
+                    {id: 2, content: 'bbb'},
+                    {id: 3, content: 'ccc'}
+                ]
+            }
+        ));
+        // return axios.get('/mail');
+    },
 }

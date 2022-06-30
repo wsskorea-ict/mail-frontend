@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import {setAuth} from "@/utils/auth";
+import {mapActions} from "vuex";
 
 export default {
   name: "LoginView",
@@ -34,8 +34,9 @@ export default {
     }
   },
   methods: {
+    ...mapActions(['LOGIN']),
     login() {
-      setAuth({token: 'test_token', name: 'test user name', login: true});
+      this.LOGIN();
       this.$router.push({name: 'index'});
     }
   }

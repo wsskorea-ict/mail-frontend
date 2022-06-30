@@ -1,8 +1,8 @@
-import {auth} from "@/utils/auth";
+import {store} from "@/store"
 
 export default {
     check: function(){
-        return !auth.login;
+        return store.state.auth.token;
     },
     redirectTo: function(){
         return {name: "index"};
