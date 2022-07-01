@@ -1,31 +1,31 @@
 <template>
-  <header class="border-bottom">
-    <div class="d-flex align-items-center h-100">
-      <!-- logo -->
-      <div class="side px-5">
-        <h1>
+  <div id="header">
+    <div class="d-flex align-items-center justify-content-between h-100">
+      <!-- left items -->
+      <div class="d-flex align-items-center">
+        <!-- logo -->
+        <h1 class="logo ps-4 mb-0 h3">
           <router-link :to="{name: 'index'}">LOGO</router-link>
         </h1>
-      </div>
 
-      <div class="d-flex align-items-center justify-content-between col pe-5">
         <!-- search -->
-        <div class="searchBox d-flex align-items-center searchForm">
+        <div class="searchBox d-flex align-items-center searchForm ms-2">
           <input type="text" name="search" v-model="searchKeyWord" placeholder="Search mail" @change="searchReady"
                  class="form-control" autocomplete="off">
           <font-awesome-icon icon="fa-solid fa-xmark" class="button close" @click="searchKeyWord = ''"/>
         </div>
-
-        <!-- user profile -->
-        <div>
-          <span class="me-3">{{auth.name}}</span>
-
-          <button class="btn btn-secondary" @click="logout">logout</button>
-        </div>
       </div>
 
+      <!-- right items -->
+      <div class="pe-5">
+        <!-- user profile -->
+        <span class="me-3">{{ auth.name }}</span>
+
+        <button class="btn btn-outline-light" @click="logout">logout</button>
+      </div>
     </div>
-  </header>
+
+  </div>
 </template>
 
 <script>
@@ -60,11 +60,13 @@ export default {
 </script>
 
 <style scoped>
-header {
+#header {
   height: var(--app-header-height);
+  background-color: var(--point-bg-color);
+  color: #fff;
 }
 
-.side {
+.logo {
   width: var(--app-sidebar-width);
 }
 
@@ -73,13 +75,16 @@ header {
 }
 
 .searchForm {
-  border-radius: 50rem;
-  border: 1px solid #333;
+  border-radius: .5rem;
+  border: 1px solid rgba(0,0,0,.3);
   overflow: hidden;
+  background-color: rgba(255,255,255,.8);
+  color: rgba(0,0,0,.5);
 }
 
 .searchForm input {
   border: none;
+  background: none;
 }
 
 .searchForm input:focus {

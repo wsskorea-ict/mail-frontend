@@ -5,8 +5,18 @@ const API_HOST = '';
 
 export default {
     /** mail **/
+    FETCH_MAIL_STAR(context, {id, bool}) {
+        mail.starred(id, bool).then(({data}) => {
+            console.log(data.message);
+            this.dispatch("FETCH_MAIL_LIST");
+        })
+    },
+    FETCH_MAIL_DETAIL({commit}, id) {
+        mail.get(id).then(({data}) => {
+            commit('SET_MAIL_SHOW', data);
+        });
+    },
     FETCH_MAIL_LIST({commit, state}) {
-        console.log(state.mailSetting);
         mail.list(state.currentPage).then(({data}) => {
             commit('SET_MAIL_LIST', data)
         });

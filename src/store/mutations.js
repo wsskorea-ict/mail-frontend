@@ -1,5 +1,6 @@
-import {setAuthStorage} from "@/api/auth"
 import axios from "axios"
+import {setAuthStorage} from "@/api/auth"
+import {setSidebar, setTheme} from "@/setting";
 
 export default {
     /** mail setting **/
@@ -10,8 +11,12 @@ export default {
         state.mailSetting.page = +page || 1;
     },
     /** mail **/
+    SET_MAIL_SHOW(state, data) {
+        state.mailDetail = data;
+    },
     SET_MAIL_LIST(state, data) {
-        state.mailList = data;
+        state.mailList = data.list;
+        state.mailListInfo = data.info;
         this.commit("SET_CHECKED_MAIL_LIST", false);
     },
     SET_CHECKED_MAIL(state, {idx, bool}) {
@@ -29,7 +34,7 @@ export default {
             name,
         }
         state.auth = auth;
-        setAuthStorage(auth);
+        setAuthStorage(state, auth);
         axios.defaults.headers.common['Authorization'] = `Bearer ${auth.token}`;
     },
     LOGOUT(state) {
@@ -38,7 +43,16 @@ export default {
             name: null,
         }
         state.auth = auth;
-        setAuthStorage(auth);
+        setAuthStorage(state, auth);
         axios.defaults.headers.common['Authorization'] = undefined;
-    }
+    },
+    /** setting **/
+    SET_THEME(state, theme) {
+        state.theme = theme;
+        setTheme(theme);
+    },
+    SET_SIDEBAR(state, bool) {
+        state.smallSideBar = bool;
+        setSidebar(bool);
+    },
 }

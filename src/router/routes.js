@@ -1,11 +1,20 @@
 import LoginView from '@/views/LoginView';
-import IndexView from '@/views/IndexView';
+import MailIndexView from '@/views/mail/IndexView';
+import DraftIndexView from '@/views/draft/IndexView';
 
 export default [
     {
         path: '/:type?/:page?',
         name: 'index',
-        component: IndexView,
+        component: MailIndexView,
+        meta: {
+            middleware: 'auth',
+        }
+    },
+    {
+        path: '/draft',
+        name: 'draft.index',
+        component: DraftIndexView,
         meta: {
             middleware: 'auth',
         }

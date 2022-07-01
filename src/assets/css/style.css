@@ -3,8 +3,42 @@
 
 /* default application variable */
 :root {
-    --app-header-height: 100px;
-    --app-sidebar-width: 300px;
+    /** application size **/
+    --app-header-height: 60px;
+    --app-sidebar-width: 160px;
+    --app-sidebar-small-width: 3.9rem;
+    --app-mail-detail-tool-height: 200px;
+    /** color **/
+    /* light mode */
+    --light-mode-bg-0-color: #fff;
+    --light-mode-bg-1-color: #f3f3f3;
+    --light-mode-bg-2-color: #eee;
+    --light-mode-bg-3-color: #ccc;
+    --light-mode-bg-4-color: #bbb;
+    --light-mode-text-0-color: #000;
+    --light-mode-text-1-color: #111;
+    --light-mode-text-2-color: #222;
+    --light-mode-text-3-color: #444;
+    --light-mode-text-4-color: #aaa;
+    /* dark mode */
+    --dark-mode-bg-0-color: #000;
+    --dark-mode-bg-1-color: #111;
+    --dark-mode-bg-2-color: #222;
+    --dark-mode-bg-3-color: #333;
+    --dark-mode-bg-4-color: #444;
+    --dark-mode-text-0-color: #fff;
+    --dark-mode-text-1-color: #eee;
+    --dark-mode-text-2-color: #ddd;
+    --dark-mode-text-3-color: #ccc;
+    --dark-mode-text-4-color: #bbb;
+    /* point */
+    --point-bg-color: #7157f1;
+    --point-text-color: #6851de;
+    /* area */
+    --area-gap: .4rem;
+    --area-radius: 1rem;
+
+    --bs-body-bg: #eee;
 }
 
 /* default init */
@@ -16,6 +50,7 @@
 
 body {
     font-family: 'Noto Sans KR', sans-serif;
+    font-size: 14px;
 }
 
 ol, ul {
@@ -30,6 +65,21 @@ label {
     display: none;
 }
 
+[v-cloak] {
+    display: none;
+}
+
+/* override bootstrap */
+a,
+a:hover {
+    color: inherit;
+    text-decoration: none;
+}
+
+.btn {
+    border-radius: .5rem;
+}
+
 /* app container */
 #app {
     width: 100vw;
@@ -42,12 +92,22 @@ label {
     font-size: 1.4em;
 }
 
-.buttonIcon:not[disabled],
-.buttonIcon:not.disabled {
+.buttonIcon:not(.disabled) {
     cursor: pointer;
 }
 
-.buttonIcon[disabled],
 .buttonIcon.disabled {
     color: rgba(0,0,0,.4);
+}
+
+.iconBox {
+    display: inline-block;
+    width: 1em;
+}
+
+/* point color */
+.btn-point {
+    color: #fff;
+    background-color: var(--point-bg-color);
+    border-color: var(--point-text-color);
 }

@@ -10,7 +10,7 @@ export const getAuthStorage = () => {
     return getItem(AUTH_STORAGE_NAME);
 }
 
-export const initAuth = ({state}) => {
+export const initAuth = store => {
     const auth = getAuthStorage();
-    if(auth) state.auth = auth;
+    if(auth) store.commit("LOGIN", auth);
 }

@@ -1,27 +1,22 @@
 <template>
-  <ul class="px-4 col">
-    <li
-        class="item"
+  <!-- mail wrapper -->
+  <div class="col">
+    <mail-list-item
+        :mail="mail"
         :key="mail.id"
-        v-for="mail in mailList">
-      <check-box-icon
-          :modelValue="checkedMailIds[mail.idx]"
-          @update:modelValue="(value) => checkMail(mail.idx, value)"></check-box-icon>
-
-      {{ mail.content }}
-    </li>
-  </ul>
+        v-for="mail in mailList"></mail-list-item>
+  </div>
 </template>
 
 <script>
-import CheckBoxIcon from "@/components/icons/CheckBoxIcon";
 import {mapActions, mapMutations, mapState} from "vuex";
+import MailListItem from "@/components/mail/MailListItem";
 
 export default {
   name: "MailListWrapper",
-  components: {CheckBoxIcon},
+  components: {MailListItem},
   computed: {
-    ...mapState(['mailList', 'checkedMailIds']),
+    ...mapState(['mailList']),
     type() {
       const {type} = this.$route.params;
       return type;
@@ -32,11 +27,8 @@ export default {
     }
   },
   methods: {
-    ...mapMutations(['SET_CHECKED_MAIL', 'SET_MAIL_TYPE', 'SET_MAIL_PAGE']),
+    ...mapMutations(['SET_MAIL_TYPE', 'SET_MAIL_PAGE']),
     ...mapActions(['FETCH_MAIL_LIST']),
-    checkMail(idx, bool) {
-      this.SET_CHECKED_MAIL({idx, bool});
-    }
   },
   created() {
     this.SET_MAIL_TYPE(this.type);
@@ -51,6 +43,7 @@ export default {
     },
     'type': function (value) {
       this.SET_MAIL_TYPE(value);
+      console.log(value);
     },
     'page': function (value) {
       this.SET_MAIL_PAGE(value);
