@@ -41,7 +41,7 @@
               checkIcon="fa-solid fa-chevron-right"
               unCheckIcon="fa-solid fa-chevron-left"
               :modelValue="smallSideBar"
-              @update:modelValue="SET_SIDEBAR(!smallSideBar)"
+              @update="SET_SIDEBAR(!smallSideBar)"
           ></check-box-icon>
         </div>
       </div>
@@ -68,7 +68,8 @@ export default {
 <style scoped>
 nav {
   width: var(--app-sidebar-width);
-  background-color: var(--light-mode-bg-0-color);
+  background-color: var(--point-deep-color);
+  color: #fff;
   border-top-right-radius: var(--area-radius);
   border-bottom-right-radius: var(--area-radius);
   transition: width .3s;
@@ -88,13 +89,12 @@ nav.smallSide {
 
 .navigation a {
   opacity: .6;
-  color: var(--light-mode-text-2-color);
   position: relative;
 }
 
 .navigation a.router-link-active {
   opacity: 1;
-  color: var(--point-text-color);
+  /*color: var(--point-text-color);*/
 }
 
 .iconTitle {

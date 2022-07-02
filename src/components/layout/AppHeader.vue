@@ -9,15 +9,16 @@
         </h1>
 
         <!-- search -->
-        <div class="searchBox d-flex align-items-center searchForm ms-2">
-          <input type="text" name="search" v-model="searchKeyWord" placeholder="Search mail" @change="searchReady"
+        <div class="searchBox d-flex align-items-center searchForm ms-2" :class="{focusInput}">
+          <input @focus="focusInput = true" @blur="focusInput = false" type="text" name="search" v-model="searchKeyWord"
+                 placeholder="Search mail" @change="searchReady"
                  class="form-control" autocomplete="off">
           <font-awesome-icon icon="fa-solid fa-xmark" class="button close" @click="searchKeyWord = ''"/>
         </div>
       </div>
 
       <!-- right items -->
-      <div class="pe-5">
+      <div class="pe-4">
         <!-- user profile -->
         <span class="me-3">{{ auth.name }}</span>
 
@@ -37,6 +38,7 @@ export default {
     return {
       searchKeyWord: "",
       searchReadyTimeout: null,
+      focusInput: false,
     }
   },
   computed: {
@@ -76,10 +78,15 @@ export default {
 
 .searchForm {
   border-radius: .5rem;
-  border: 1px solid rgba(0,0,0,.3);
+  border: 1px solid rgba(0, 0, 0, .3);
   overflow: hidden;
-  background-color: rgba(255,255,255,.8);
-  color: rgba(0,0,0,.5);
+  background-color: rgba(255, 255, 255, .8);
+  color: rgba(0, 0, 0, .5);
+  transition: background-color .3s;
+}
+
+.searchForm.focusInput {
+  background-color: rgba(255, 255, 255, 1);
 }
 
 .searchForm input {

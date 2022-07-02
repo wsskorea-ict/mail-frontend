@@ -57,7 +57,7 @@ export default {
 .mailShowArea {
   border-radius: var(--area-radius);
   background-color: var(--light-mode-bg-0-color);
-  color: var(--light-mode-text-4-color);
+  color: var(--light-mode-text-2-color);
   overflow: hidden;
 }
 

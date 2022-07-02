@@ -14,5 +14,6 @@ export default {
 div {
   font-size: 2rem;
   opacity: .3;
+  color: var(--light-mode-text-4-color);
 }
 </style>

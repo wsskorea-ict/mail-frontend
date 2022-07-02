@@ -6,8 +6,7 @@
     /** application size **/
     --app-header-height: 60px;
     --app-sidebar-width: 160px;
-    --app-sidebar-small-width: 3.9rem;
-    --app-mail-detail-tool-height: 200px;
+    --app-sidebar-small-width: 4.4rem;
     /** color **/
     /* light mode */
     --light-mode-bg-0-color: #fff;
@@ -32,13 +31,14 @@
     --dark-mode-text-3-color: #ccc;
     --dark-mode-text-4-color: #bbb;
     /* point */
+    --point-deep-color: #17103d;
     --point-bg-color: #7157f1;
-    --point-text-color: #6851de;
+    --point-text-color: #614cce;
     /* area */
     --area-gap: .4rem;
     --area-radius: 1rem;
 
-    --bs-body-bg: #eee;
+    --bs-body-bg: var(--light-mode-bg-2-color);
 }
 
 /* default init */
@@ -48,9 +48,12 @@
     box-sizing: border-box;
 }
 
+html {
+    font-size: 14px;
+}
+
 body {
     font-family: 'Noto Sans KR', sans-serif;
-    font-size: 14px;
 }
 
 ol, ul {
@@ -67,6 +70,15 @@ label {
 
 [v-cloak] {
     display: none;
+}
+
+/* lib */
+a.underline {
+    text-decoration: underline;
+}
+a.underline:hover {
+    font-weight: bold;
+    text-decoration: underline;
 }
 
 /* override bootstrap */
@@ -110,4 +122,8 @@ a:hover {
     color: #fff;
     background-color: var(--point-bg-color);
     border-color: var(--point-text-color);
+}
+.btn-point:hover {
+    color: #fff;
+    background-color: var(--point-text-color);
 }

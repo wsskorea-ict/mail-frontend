@@ -10,12 +10,31 @@ import 'bootstrap/dist/js/bootstrap.bundle.min'
 /** import fontawesome **/
 import {library} from '@fortawesome/fontawesome-svg-core'
 import {FontAwesomeIcon} from '@fortawesome/vue-fontawesome'
-import {faXmark, faTrash, faPaperPlane, faStar as faStarS, faInbox, faGear, faFloppyDisk, faAngleLeft, faAngleRight, faShare, faRotateRight, faChevronLeft, faChevronRight} from '@fortawesome/free-solid-svg-icons'
+import {
+    faXmark,
+    faTrash,
+    faPaperPlane,
+    faStar as faStarS,
+    faInbox,
+    faGear,
+    faFloppyDisk,
+    faAngleLeft,
+    faAngleRight,
+    faShare,
+    faRotateRight,
+    faChevronLeft,
+    faChevronRight,
+    faEllipsisVertical,
+    faAngleDown,
+    faAngleUp,
+} from '@fortawesome/free-solid-svg-icons'
 import {faSquareCheck, faSquare, faStar as faStarR} from '@fortawesome/free-regular-svg-icons'
+
 /** add icons to the library **/
-library.add(faXmark, faSquareCheck, faSquare, faTrash, faPaperPlane, faStarS, faInbox, faGear, faStarR, faFloppyDisk, faAngleLeft, faAngleRight, faShare, faRotateRight, faChevronLeft, faChevronRight)
+library.add(faXmark, faSquareCheck, faSquare, faTrash, faPaperPlane, faStarS, faInbox, faGear, faStarR, faFloppyDisk, faAngleLeft, faAngleRight, faShare, faRotateRight, faChevronLeft, faChevronRight, faEllipsisVertical, faAngleDown, faAngleUp)
 /** import custom style **/
 import '@/assets/css/style.css'
+import '@/assets/css/transition.css'
 /** init auth **/
 import {initAuth} from "@/api/auth"
 /** init setting **/

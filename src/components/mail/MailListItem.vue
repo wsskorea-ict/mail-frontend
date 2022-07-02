@@ -7,11 +7,11 @@
     <div class="ps-1 d-flex align-items-center">
       <check-box-icon
           :modelValue="checkedMailIds[mail.idx]"
-          @update:modelValue="bool => SET_CHECKED_MAIL({idx: mail.idx, bool})"></check-box-icon>
+          @update="bool => SET_CHECKED_MAIL({idx: mail.idx, bool})"></check-box-icon>
 
       <check-box-icon
-          :model-value="mail.isStarred"
-          @update:modelValue="bool => FETCH_MAIL_STAR({id: mail.id, bool})"
+          :modelValue="mail.isStarred"
+          @update="bool => FETCH_MAIL_STAR({id: mail.id, bool})"
           checkIcon="fa-solid fa-star"
           unCheckIcon="fa-regular fa-star"
           classes="ms-2 me-3"

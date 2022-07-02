@@ -11,7 +11,7 @@
         <div class="checkAll">
           <check-box-icon
               :modelValue="checkedMailAll"
-              @update:modelValue="SET_CHECKED_MAIL_LIST"
+              @update="SET_CHECKED_MAIL_LIST"
               :classes="'leadIcon'"></check-box-icon>
         </div>
 

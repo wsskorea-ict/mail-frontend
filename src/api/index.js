@@ -29,8 +29,23 @@ export const mail = {
                         name: "receive user name",
                         email: "receive_user_email@example.com",
                     },
-                    datetime: '2022-07-01 03:05:01',
-                    isStarred: false
+                    dateTime: '2022-07-01 03:05:01',
+                    isStarred: false,
+                    attachments: {
+                        downloadAll: "#downloadAll",
+                        files: [
+                            {
+                                name: 'file1.jpg',
+                                size: '13kb',
+                                download: '#download_file1',
+                            },
+                            {
+                                name: 'file2.zip',
+                                size: '2mb',
+                                download: '#download_file2',
+                            },
+                        ],
+                    }
                 }, id
             })
         );

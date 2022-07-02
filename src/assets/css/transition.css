@@ -1,0 +1,15 @@
+.slideDown-enter-active {
+    animation: slideDown .3s;
+}
+.slideDown-leave-active {
+    animation: slideDown .3s reverse;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
