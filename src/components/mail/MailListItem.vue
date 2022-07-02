@@ -1,5 +1,5 @@
 <template>
-  <div class="item px-4 py-2" @click="FETCH_MAIL_DETAIL(this.mail.id)">
+  <div class="item px-4 py-2" @click="FETCH_MAIL_DETAIL(this.mail.id)" :class="{checked: checkedMailIds[mail.idx]}">
     <div class="d-flex justify-content-between align-items-end">
       <p class="lead mb-0">{{mail.sender}}</p>
       <span class="datetime">{{ relativeDateTime(mail.dateTime) }}</span>
@@ -44,6 +44,10 @@ export default {
 <style scoped>
 .item {
   cursor: pointer;
+}
+
+.item.checked {
+  background: var(--light-mode-bg-1-color);
 }
 
 .item:hover {

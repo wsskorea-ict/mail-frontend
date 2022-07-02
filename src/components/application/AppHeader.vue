@@ -5,7 +5,7 @@
       <div class="d-flex align-items-center">
         <!-- logo -->
         <h1 class="logo ps-4 mb-0 h3">
-          <router-link :to="{name: 'index'}">LOGO</router-link>
+          <router-link :to="{name: 'index'}">WSS MAIL</router-link>
         </h1>
 
         <!-- search -->

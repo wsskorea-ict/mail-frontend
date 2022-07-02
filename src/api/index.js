@@ -54,7 +54,7 @@ export const mail = {
         return new Promise(res => res({
                 data: {
                     list: [
-                        {idx: 0, id: 1, title: 'aaa title', sender: 'user1', dateTime: '2022-07-01 03:05:01', isStarred: false},
+                        {idx: 0, id: 1, title: 'aaa title aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', sender: 'user1', dateTime: '2022-07-01 03:05:01', isStarred: false},
                         {idx: 1, id: 2, title: 'bbb title', sender: 'user2', dateTime: '2022-06-28 03:05:01', isStarred: true},
                         {idx: 2, id: 3, title: 'ccc title', sender: 'user3', dateTime: '2022-06-23 03:05:01', isStarred: false},
                     ],

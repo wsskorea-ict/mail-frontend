@@ -31,9 +31,9 @@
     --dark-mode-text-3-color: #ccc;
     --dark-mode-text-4-color: #bbb;
     /* point */
-    --point-deep-color: #17103d;
-    --point-bg-color: #7157f1;
-    --point-text-color: #614cce;
+    --point-deep-color: #12245b;
+    --point-bg-color: #3366ff;
+    --point-text-color: #2c58dc;
     /* area */
     --area-gap: .4rem;
     --area-radius: 1rem;
@@ -79,6 +79,16 @@ a.underline {
 a.underline:hover {
     font-weight: bold;
     text-decoration: underline;
+}
+
+.hoverIcon {
+    transition: background-color .2s;
+    border-radius: .4em;
+    padding: .4em;
+}
+
+.hoverIcon:not(.disabled):hover {
+    background-color: rgba(255,255,255,.4);
 }
 
 /* override bootstrap */

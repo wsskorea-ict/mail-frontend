@@ -1,5 +1,5 @@
 <template>
-  <label>
+  <label @click="event => event.stopPropagation()">
     <input :id="id" type="checkbox" @change="$emit('update', $event.target.checked)" none :checked="modelValue">
     <font-awesome-icon v-if="modelValue" :icon="checkIcon" class="buttonIcon" :class="classes"/>
     <font-awesome-icon v-else :icon="unCheckIcon" class="buttonIcon" :class="classes"/>
@@ -26,10 +26,9 @@ export default {
     modelValue(v) {
       console.log(v);
     }
-  }
+  },
 }
 </script>
 
 <style scoped>
-
 </style>
