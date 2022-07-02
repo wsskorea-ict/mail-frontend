@@ -1,28 +1,22 @@
 <template>
-  <div class="d-flex flex-column w-100 h-100">
-    <app-header></app-header>
-    <div class="d-flex col contentArea">
-      <app-sidebar></app-sidebar>
-
-      <div class="col-4 mailWrapperArea">
-        <div class="d-flex flex-column h-100 mailWrapper" v-if="mailList">
-          <mail-menu-nav></mail-menu-nav>
-          <mail-list-wrapper></mail-list-wrapper>
-          <mail-list-pagination></mail-list-pagination>
-        </div>
-      </div>
-
-      <div class="col mailShowArea">
-        <mail-show-item v-if="mailDetail"></mail-show-item>
-        <mail-empty-item v-else></mail-empty-item>
+  <app-layout>
+    <div class="col-4 mailWrapperArea">
+      <div class="d-flex flex-column h-100 mailWrapper" v-if="mailList">
+        <mail-menu-nav></mail-menu-nav>
+        <mail-list-wrapper></mail-list-wrapper>
+        <mail-list-pagination></mail-list-pagination>
       </div>
     </div>
-  </div>
+
+    <div class="col mailShowArea">
+      <mail-show-item v-if="mailDetail"></mail-show-item>
+      <mail-empty-item v-else></mail-empty-item>
+    </div>
+  </app-layout>
 </template>
 
 <script>
-import AppHeader from "@/components/layout/AppHeader";
-import AppSidebar from '@/components/layout/AppSidebar';
+import AppLayout from "@/views/template/AppLayout";
 import MailMenuNav from "@/components/mail/MailMenuNav";
 import MailListWrapper from "@/components/mail/MailListWrapper";
 import MailListPagination from "@/components/mail/MailListPagination";
@@ -32,7 +26,7 @@ import {mapState} from "vuex";
 
 export default {
   name: 'MailIndexView',
-  components: {AppHeader, AppSidebar, MailMenuNav, MailListWrapper, MailListPagination, MailShowItem, MailEmptyItem},
+  components: {MailMenuNav, MailListWrapper, MailListPagination, MailShowItem, MailEmptyItem, AppLayout},
   computed: {
     ...mapState(['mailDetail', 'mailList']),
   },
@@ -40,11 +34,6 @@ export default {
 </script>
 
 <style>
-.contentArea {
-  padding: var(--area-gap) 0;
-  padding-right: var(--area-gap);
-}
-
 .mailWrapperArea {
   padding: 0 var(--area-gap);
 }
